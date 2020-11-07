@@ -8,7 +8,7 @@ function Circle() {
 	this.name = "Circulo";
 	this.parameters = {
 		radius: {
-			name: "radio",
+			name: "Radio",
 			value: 1.0
 		}
 	}
@@ -32,11 +32,11 @@ function Square() {
 	this.name = "Cuadrado";
 	this.parameters = {
 		width: {
-			name: "ancho",
+			name: "Ancho",
 			value: 1.0
 		},
 		height: {
-			name: "alto",
+			name: "Alto",
 			value: 2.0
 		}
 	}
@@ -80,13 +80,13 @@ function Polygon() {
 	this.name = "Poligono";
 	this.parameters = {
 		sides: {
-			name: "numero de lados",
+			name: "Numero de lados",
 			value: 5,
 			step: 1,
 			min: 3
 		},
 		sideLength: {
-			name: "lado",
+			name: "Lado",
 			value: 1
 		}
 	}
@@ -160,7 +160,13 @@ Math.degToRad = function(degrees) {
 
 
 
+function capitalize (s) {
+	if (typeof s !== 'string') {
+		return '';
+	}
 
+	return s.charAt(0).toUpperCase() + s.slice(1)
+}
 
 
 const select = document.getElementById("shapeSelect");
@@ -170,9 +176,9 @@ const imgParent = document.getElementById("imageParent");
 const paramsParent = document.getElementById("paramsParent");
 
 const shapes = [
+	new Polygon(),
 	new Circle(),
-	new Square(),
-	new Polygon()
+	new Square()
 ]
 
 let currentShape;
@@ -223,10 +229,11 @@ function onSelectShape() {
 		let value = currentShape.parameters[key];
 
 		const div = document.createElement("div");
-		div.innerHTML = '<label for="radius">radio (r):</label><input id="radius" type="number" name="radius" value="1.0" step="0.1">';
+		div.className = "param-row";
+		div.innerHTML = '<label for="radius">Radio (r):</label><input id="radius" type="number" name="radius" value="1.0" step="0.1">';
 
 		const label = div.children[0];
-		label.textContent = value.name + ":";
+		label.textContent = capitalize(value.name) + ":";
 
 		const input = div.children[1];
 		input.value = value.value;

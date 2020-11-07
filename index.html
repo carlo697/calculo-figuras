@@ -1,58 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 	<title>Calculo de Figuras Geometricas</title>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 	<main>
 		<h1>Figuras Geometricas</h1>
-		<div class="divisor"></div>
-		<form>
-			<div class="form-row">
-				<label for="shapeSelect">Seleccionar:</label>
-				<select id="shapeSelect">
-					<option>Circulo</option>
-				</select>
-			</div>
-			
 
-			<div class="form-row">
-				<!-- <img class="form-img" src="img/circulo.png" alt=""> -->
-				<div id="imageParent">
-					<svg class="form-img" height="100" width="100">
-						<circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="transparent" />
-					</svg>
+		<div class="margen">
+			<form>
+				<div class="form-row">
+					<select id="shapeSelect">
+						<option>Circulo</option>
+					</select>
 				</div>
+				
 
-				<div>
-					<h3>Parametros</h3>
+				<div class="form-row">
+					<!-- <img class="form-img" src="img/circulo.png" alt=""> -->
+					<div id="imageParent">
+						<svg class="form-img" height="100" width="100">
+							<circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="transparent" />
+						</svg>
+					</div>
 
-					<div id="paramsParent">
-						<div>
-							<label for="radius">radio (r):</label>
-							<input id="radius" type="number" name="radius" value="1.0" step="0.1">
+					<div>
+						<h3>Parametros</h3>
+
+						<div id="paramsParent">
+							<div class="param-row">
+								<label for="radius">radio (r):</label>
+								<input id="radius" type="number" name="radius" value="1.0" step="0.1">
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</form>
+			</form>
 
-		<h2>Calculos</h2>
+			<h2>Resultados</h2>
 
-		<div class="values-container">
-			<div>
-				<span class="value-name">perimetro</span>
-				<span id="perimeterResult" class="value">2</span>
-			</div>
+			<div class="values-container">
+				<div>
+					<span class="value-name">Perímetro</span>
+					<span id="perimeterResult" class="value">2</span>
+				</div>
 
-			<div>
-				<span class="value-name">area</span>
-				<span id="areaResult" class="value">6.2831</span>
+				<div>
+					<span class="value-name">Área</span>
+					<span id="areaResult" class="value">6.2831</span>
+				</div>
 			</div>
 		</div>
+		
 	</main>
 
 	<script src="script.js"></script>
